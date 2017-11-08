@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Add User</title>
+  <title>Admin</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -15,10 +15,6 @@
       background-color: #f1f1f1;
       height: 100%;
   }
-  .form-group{
-  	
-  }
-
 
   footer {
       background-color: #555;
@@ -59,35 +55,41 @@
 
 <div class="col-sm-9">
   <hr>
-  <h2>Add User</h2>
+  <h2>List User</h2>
   <h5><span class="glyphicon glyphicon-time"></span> Post by Japan, 2017.</h5>
   <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span>
+ <span style="float: right;margin-right: 160px;"><button type="button" class="btn btn-primary">Thêm mới tài khoản</button></span>
   </h5><br>
 
-  <form>
-  <div class="form-group">
-    <label for="name_user">User Name</label>
-    <input type="name" class="form-control" id="name_user" placeholder="Name">
-  </div>
-   <div class="form-group">
-    <label for="email_user">Email</label>
-    <input type="email" class="form-control" id="email_user" placeholder="Email">
-  </div>
-  <div class="form-group">
-    <label for="phone_user">Phone</label>
-    <input type="phone" class="form-control" id="phone_user" placeholder="Phone">
-  </div>
-  <div class="form-group">
-    <label>Address</label>
-    <input type="password" class="form-control" id="address_user" placeholder="address">
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Check 
-    </label>
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+  
+  <table style="width:90%"  class="table table-hover">
+
+   <tr>
+    <th>STT</th>
+    <th>Họ Và Tên</th> 
+    <th>Email </th>
+    <th>Số điện thoại</th>
+    <th>Địa chỉ</th>
+    <th>Chức năng
+
+    </th>
+</tr>
+@foreach( $user as $key => $value)
+
+<tr>
+    <td>{{ $value->id }}</td>
+    <td>{{ $value->name }}</td>
+    <td>{{ $value->email }}</td>
+    <td>{{ $value->number }}</td>
+    <td>{{ $value->address }}</td>
+    <td>
+        <button type="button" class="btn btn-danger">Xóa</button>
+        <button type="button" class="btn btn-success">Sủa</button>
+    </td>
+</tr>
+
+@endforeach
+</table>
 
 </div>
 </div>

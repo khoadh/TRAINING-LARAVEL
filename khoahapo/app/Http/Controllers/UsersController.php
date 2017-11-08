@@ -1,28 +1,27 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\User;
-class UserController extends Controller
+class UsersController extends Controller
 {
 	public function __construct()
 	{
 
 	}
 
-    public function index_user()
+    public function index()
     {
         $users = User::all();
         $data = [
         	'user' => $users
         ];
-        return view('profile-user', $data);
+        return view('users.profile-user', $data);
     }
 
     public function create_user()
     {
-        return view('user.create_user');
+        return view('users.create-user');
     }
     public function store_user(Request $request)
     {
