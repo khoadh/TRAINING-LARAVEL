@@ -15,10 +15,6 @@
       background-color: #f1f1f1;
       height: 100%;
   }
-  .form-group{
-  	
-  }
-
 
   footer {
       background-color: #555;
