@@ -18,5 +18,9 @@ Route::get('/', function () {
 Route::get('/list-user-html','UsersController@index');
 Route::get('/list-student-html','StudentsController@index');
 
-Route::get('/user/them-moi-tai-khoan-html','UsersController@create_user');
-Route::post('/user/them-moi-tai-khoan-html','UsersController@store_user');
+Route::get('/index','StudentsController@index')->name('index');
+
+Route::get('/create-student','StudentsController@create')->name('create-student');
+Route::post('/create-student','StudentsController@store') ->name('create-student');
+
+Route::get('/edit-student/{id}','StudentsController@edit');
