@@ -2,12 +2,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Add User</title>
+  <title>Add</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="public/css/bootstrap.min.css" rel="stylesheet">
   <style>
     .row.content {height: 800px}
 
@@ -16,10 +14,9 @@
       height: 100%;
   }
   .form-group{
+    width: 50%;
   	
   }
-
-
   footer {
       background-color: #555;
       color: white;
@@ -42,10 +39,12 @@
         <div class="col-sm-3 sidenav">
           <h4>Hapo JC</h4>
           <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="#section1">Home</a></li>
-            <li><a href="#section2">Users</a></li>
-            <li><a href="#section3">Family</a></li>
-            <li><a href="#section3">Photos</a></li>
+            <li class="active"><a href="#section1">Admin</a></li>
+            <li><a href="#section3">Sinh Viên</a></li>
+            <li><a href="#section3">Giáo Viên</a></li>
+             <li><a href="#section3">Môn Học</a></li>
+            <li><a href="#section3">Đăng Ký Môn Học</a></li>
+            <li><a href="#section3">Quản Lý Điểm Sinh viên</a></li>
         </ul><br>
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Search Blog..">
@@ -64,29 +63,26 @@
   <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span>
   </h5><br>
 
-  <form>
+  <form method="POST" action="{{ route('create-student') }}">
   <div class="form-group">
     <label for="name_user">User Name</label>
-    <input type="name" class="form-control" id="name_user" placeholder="Name">
+     {{ csrf_field() }}
+    <input type="name" class="form-control" id="name_student" placeholder="Name" name="name_student">
   </div>
    <div class="form-group">
     <label for="email_user">Email</label>
-    <input type="email" class="form-control" id="email_user" placeholder="Email">
+    <input type="email" class="form-control" id="email_student" placeholder="Email" name="email_student">
   </div>
   <div class="form-group">
     <label for="phone_user">Phone</label>
-    <input type="phone" class="form-control" id="phone_user" placeholder="Phone">
+    <input type="phone" class="form-control" id="phone_student" placeholder="Phone" name="phone_student">
   </div>
   <div class="form-group">
     <label>Address</label>
-    <input type="password" class="form-control" id="address_user" placeholder="address">
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Check 
-    </label>
+    <input type="text" class="form-control" id="address_student" placeholder="address" name="address_student">
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
+   <a  href="{{ route('index') }}" class="btn btn-primary">Trở về</a></span>
 </form>
 
 </div>
