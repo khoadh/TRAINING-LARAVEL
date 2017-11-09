@@ -17,12 +17,10 @@ class StudentsController extends Controller
     	  $dataStudents = students ::all();
     	  return view('students.index',['data'=> $dataStudents]);
     }
-
     public function create(){
         return view('students.create');
 
     }
-
     public function store(Request $request )
     {
         $students = new students;
@@ -34,7 +32,6 @@ class StudentsController extends Controller
           return redirect('index');
           
     }
-
     public function show($id)
     {
         echo "day la show";
