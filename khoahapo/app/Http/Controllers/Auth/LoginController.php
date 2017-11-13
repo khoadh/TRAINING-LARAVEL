@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\students;
 
 class LoginController extends Controller
 {
@@ -32,8 +35,34 @@ class LoginController extends Controller
      *
      * @return void
      */
+
+    protected function guard()
+    {
+        return Auth::guard('login_students');
+    }
+
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('login_students')->except('logout');
     }
+
+    public function username()
+    {
+        
+    }
+    public function login()
+    {
+        return view('admin.login');
+    }
+
+    public function getlogin()
+    {
+        if (Auth::guard('login_students')->attempt(['email' => $email, 'password' => $password])) {
+            
+            return redirect()->intended('index');
+        }
+    
+        return view('admin.login');
+    }
+
 }
