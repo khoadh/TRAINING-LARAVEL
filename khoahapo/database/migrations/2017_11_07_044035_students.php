@@ -19,6 +19,7 @@ class Students extends Migration
             $table->string('email')->unique();
             $table->integer('phone');
             $table->string('address');
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
