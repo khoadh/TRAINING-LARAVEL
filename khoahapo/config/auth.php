@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+    'guard' => 'web',
+    'passwords' => 'users',
     ],
 
     /*
@@ -36,15 +36,24 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
+    'web' => [
+    'driver' => 'session',
+    'provider' => 'users',
+    ],
 
-        'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
-        ],
+    'api' => [
+    'driver' => 'token',
+    'provider' => 'users',
+    ],
+    'students'=>
+    [
+    'driver'=>'session',
+    'provider'=>'students',
+    ],
+    'admin'=> [
+    'driver'=>'session',
+    'provider'=>'admin'
+    ]
     ],
 
     /*
@@ -65,11 +74,18 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
-        ],
-
+    'users' => [
+    'driver' => 'eloquent',
+    'model' => App\User::class,
+    ],
+    'students' => [
+    'driver' => 'eloquent',
+    'model' => App\students::class,
+    ],
+    'admin' => [
+    'driver'=>'eloquent',
+    'model'=> App\admin::class
+    ]
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -92,11 +108,11 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
-            'table' => 'password_resets',
-            'expire' => 60,
-        ],
+    'users' => [
+    'provider' => 'users',
+    'table' => 'password_resets',
+    'expire' => 60,
+    ],
     ],
 
-];
+    ];

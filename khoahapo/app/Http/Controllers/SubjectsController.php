@@ -1,20 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\subjects;
 
 class SubjectsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+   public function __construct(){
+
+   }
+
     public function index()
     {
-        //
+        $dataSubject = subjects :: all();
+        return view('subjects.index', ['data'=> $dataSubject]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -22,8 +25,8 @@ class SubjectsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {       
+        return view('subjects.create');
     }
 
     /**
