@@ -5,7 +5,7 @@
   <title>Admin</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="public/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href={{asset('public/css/bootstrap.min.css')}}>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <style>
@@ -46,12 +46,12 @@
         <div class="col-md-3 sidenav">
           <h4>Hapo JC</h4>
           <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="#section1">Admin</a></li>
+            <li class="active"><a href="{{ route('listAdmin') }}">Admin</a></li>
             <li><a  href="{{ route('index') }}">Sinh Viên</a></li>
-            <li><a  href="{{ route('index') }}">Giáo Viên</a></li>
+            <li><a  href="{{ route('list-teacher') }}">Giáo Viên</a></li>
              <li><a  href="{{ route('list-subject') }}">Môn Học</a></li>
             <li><a href="#section3">Đăng Ký Môn Học</a></li>
-            <li><a href="#section3">Quản Lý Điểm Sinh viên</a></li>
+            <li><a href="{{ route('quan-ly-diem') }}">Quản Lý Điểm Sinh viên</a></li>
         </ul><br>
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Search Blog..">
@@ -69,7 +69,7 @@
             This is the master sidebar.
         @show
 
-        <div class="container">
+        <div>
             @yield('content')
         </div>
     </body>

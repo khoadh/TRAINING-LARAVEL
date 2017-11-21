@@ -10,8 +10,12 @@
   <form method="POST" action="{{ route('edit-student',$dataEdit['students_id']) }}">
   {{ method_field('PUT') }}
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <div class="form-group">
+      <label for="email_user">Mã số sv</label>
+      <input type="email" class="form-control" id="number_student" placeholder="NumberStudent" name="number_student_id" value="{!! $dataEdit['number_student_id'] !!}">
+    </div>
   <div class="form-group">
-    <label for="name_user">User Name</label>
+    <label for="name_user">Họ tên</label>
    
     <input type="name" class="form-control" id="name_student" placeholder="Name" name="name_student" value="{!! $dataEdit['name'] !!}">
   </div>
@@ -20,11 +24,11 @@
     <input type="email" class="form-control" id="email_student" placeholder="Email" name="email_student"  value="{!! $dataEdit['email'] !!}">
   </div>
   <div class="form-group">
-    <label for="phone_user">Phone</label>
+    <label for="phone_user">Số điện thoại</label>
     <input type="phone" class="form-control" id="phone_student" placeholder="Phone" name="phone_student"  value="{!! $dataEdit['phone'] !!}">
   </div>
   <div class="form-group">
-    <label>Address</label>
+    <label>Địa chỉ</label>
     <input type="text" class="form-control" id="address_student" placeholder="address" name="address_student"  value="{!! $dataEdit['address'] !!}">
   </div>
   <button type="submit" class="btn btn-default">Submit</button>

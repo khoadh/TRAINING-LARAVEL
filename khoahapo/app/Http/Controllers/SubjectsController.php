@@ -37,7 +37,14 @@ class SubjectsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dataSubject = new subjects ;
+        $dataSubject ->subjects_id = $request ->subjects_id;
+        $dataSubject -> name_subject = $request -> name_subject;
+        $dataSubject -> number_semester = $request -> number_semester;
+
+        $dataSubject ->save();
+        return redirect('list-subject');
+
     }
 
     /**

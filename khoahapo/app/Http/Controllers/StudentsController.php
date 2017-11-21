@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\students;
+use DB;
 class StudentsController extends Controller
 {
     public function __construct(){
@@ -22,8 +23,10 @@ class StudentsController extends Controller
     {
         $students = new students;
           $students ->name = $request->name_student;
+          $students ->number_student_id = $request->number_student_id;
           $students ->email = $request->email_student;
           $students ->phone = $request->phone_student;
+          $students ->password = bcrypt($request->pass_student);
           $students->address = $request->address_student;
           $students->save();
           return redirect('index');
@@ -31,7 +34,7 @@ class StudentsController extends Controller
     }
     public function edit($students_id)
     {
-        $dataEditStudents = students::find($students_id);
+        $dataEditStudents = students::findOrFail($students_id);
 
         return view('students.edit',['dataEdit'=>$dataEditStudents]);
     }
@@ -41,8 +44,10 @@ class StudentsController extends Controller
 
          $dataUpdate = students::find($students_id);
          $dataUpdate ->name = $request->name_student;
+         $dataUpdate ->number_student_id = $request->number_student_id;
          $dataUpdate ->email = $request->email_student;
          $dataUpdate ->phone = $request ->phone_student;
+         $dataUpdate ->password = bcrypt($request ->pass_student);
          $dataUpdate ->address = $request->address_student;
 
          $dataUpdate->save();

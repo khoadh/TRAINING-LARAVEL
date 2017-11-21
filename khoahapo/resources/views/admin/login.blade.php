@@ -31,17 +31,17 @@
         </form>
 
     </div>
-    {{--<div class="form">--}}
-        {{--<h2>Create an account</h2>--}}
-        {{--<form method="POST" action="{{ route('admin.register')  }}">--}}
-            {{--<input type="text" placeholder="Username" name="username"/>--}}
-            {{--{{ csrf_field() }}--}}
-            {{--<input type="password" placeholder="Password" name="password"/>--}}
-            {{--<input type="email" placeholder="Email Address" name="email"/>--}}
-            {{--<input type="tel" placeholder="Phone Number" name="phone"/>--}}
-            {{--<button type="submit">Register</button>--}}
-        {{--</form>--}}
-    {{--</div>--}}
+    <div class="form">
+        <h2>Create an account</h2>
+        <form method="POST" action="{{ route('admin.register')  }}">
+            <input type="text" placeholder="Username" name="username"/>
+            {{ csrf_field() }}
+            <input type="password" placeholder="Password" name="password"/>
+            <input type="email" placeholder="Email Address" name="email"/>
+            <input type="tel" placeholder="Phone Number" name="phone"/>
+            <button type="submit">Register</button>
+        </form>
+    </div>
     <div class="cta"><a href="{!! route('admin.register') !!}">Register</a></div>
 </div>
 

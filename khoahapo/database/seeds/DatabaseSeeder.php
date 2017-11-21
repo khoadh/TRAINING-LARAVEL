@@ -12,19 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(AdminTableSeeder::class);
+         $this->call(StandardStudentsTableSeeder::class);
     }
 
-}
-class AdminTableSeeder extends Seeder
-{
-	public function run ()
-	{
-		DB::table('admin')->insert([
-
-			['username'=>'khoadh','email'=>'khoadh@haposoft.com','password'=>bcrypt(12345),'lever'=>1],
-			['username'=>'khoa','email'=>'khoa@haposoft.com','password'=>bcrypt(12345),'lever'=>1],
-			]);
-			
-	}
 }

@@ -17,8 +17,8 @@ class LoginAdmin
     {
         if(!Auth::guard('admin')->check())
         {
-            dd("kjdsfljdsf");
-            return redirect()->route('admin.login');
+
+            return redirect()->route('admin.getlogin');
         }
         return $next($request);
     }

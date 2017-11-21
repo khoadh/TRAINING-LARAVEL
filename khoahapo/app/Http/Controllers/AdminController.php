@@ -64,4 +64,23 @@ class AdminController extends Controller
         return redirect()->route('admin.getlogin');
     }
 
+    public  function listAdmin()
+    {
+        $dataAdmin = admin :: all();
+
+        return view('admin.listAdmin',['data'=> $dataAdmin]);
+    }
+
+    public function edit($id)
+    {
+        $dataEdit = admin:: find($id);
+
+        return view('admin.edit',['dataEdit'=> $dataEdit]);
+    }
+
+    public function postedit()
+    {
+
+    }
+
 }
